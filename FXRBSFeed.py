@@ -4,6 +4,8 @@ import sys
 import time
 import pusherclient
 import json
+import FXParse
+import ArbitrageFinder as af
 
 global pusher
 
@@ -11,9 +13,12 @@ def print_usage(filename):
     print("Usage: python %s <appkey>" % filename)
 
 def channel_callback(data):
-    d = json.loads(data)
-    print "Channel Callback: %s" % data
-    print "FX: ", d
+    print "callback"
+    raw_dict = json.loads(data)
+    fx_block = FXParse.parse(raw_dict, "mid")
+#     af = af.ArbitrageFinder.instance()
+#     af.updateFX(fx_block)
+    print "FX: ", fx_block
 
 def connect_handler(data):
     channel = pusher.subscribe("fxRateStream")

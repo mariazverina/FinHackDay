@@ -2,6 +2,8 @@
 Created on 13 Nov 2014
 
 @author: mariaz
+
+
 '''
 
 import BitCoinExchange as BCX
@@ -11,10 +13,10 @@ from multiprocessing import Process
 
 
 if __name__ == '__main__':
-#     fx = Process(target=FX.runFX())
-#     fx.start()
-    tp = Process(target=TW.runTW)
-    tp.start()
+#     tp = Process(target=TW.runTW)
+#     tp.start()
     bp = Process(target=BCX.runBCX())
     bp.start()
-    tp.join()
+    fx = Process(target=FX.runFX())
+    fx.start()
+    fx.join()

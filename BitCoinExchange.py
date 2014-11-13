@@ -6,9 +6,10 @@ Created on 13 Nov 2014
 
 import json
 import string
+import ArbitrageFinder as AF
+import telnetlib
 
 def runBCX():
-    import telnetlib
     
     tn = telnetlib.Telnet("api.bitcoincharts.com", 27007)
     
@@ -22,8 +23,10 @@ def runBCX():
         exchange = ''.join([c for c in symbol if c in string.lowercase])
         price = d[u'price']
         
-        print "BTC", s.strip(), d
-        print xid, vol, price, currency, exchange
+#         print "BTC", s.strip(), d
+#         print xid, vol, price, currency, exchange
+        af = AF.ArbitrageFinder.instance()
+        af.updateBC(currency, price)
 
 
 if __name__ == '__main__':

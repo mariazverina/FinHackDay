@@ -8,8 +8,8 @@ import sys
 import tweepy
 
 def runTW():
-    consumer_key="nrnMpQy1ggTVlkiN01ArAN73T"
-    consumer_secret="EaYgvEMfSNIFgbkID6B8reVob0XDn0F8kWrqGzHa01uYXB5iWb"
+    consumer_key="2PMksOpv240vdoq8QqFTppJHK"
+    consumer_secret="6Dh2YBAXB5Moj2IlCHn7TiIkos6awllDILoebuS8kemNSYnqEB"
     access_key = "31118185-Mc7FU5KLvatCVvgFZTB7WxrYPg1vHA47vnz4L1LIg"
     access_secret = "rImwmxUEBQRNre2PN5BPegpfzK4WitnXxoN4qu5Tgw4a7" 
     
