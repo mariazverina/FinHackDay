@@ -9,14 +9,18 @@ Created on 13 Nov 2014
 import BitCoinExchange as BCX
 import FXRBSFeed as FX
 import TwitterData as TW
-from multiprocessing import Process
+import ArbitrageFinder as AF
+from threading import Thread
 
 
 if __name__ == '__main__':
 #     tp = Process(target=TW.runTW)
 #     tp.start()
-    bp = Process(target=BCX.runBCX())
+    af = AF.ArbitrageFinder()
+    fx = FX.FXFeed(af)
+    bcx = BCX.BCX(af)
+    bp = Thread(target=bcx.run)
     bp.start()
-    fx = Process(target=FX.runFX())
-    fx.start()
-    fx.join()
+    fxp = Thread(target=fx.run)
+    fxp.start()
+    fxp.join()
